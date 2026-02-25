@@ -1,0 +1,260 @@
+﻿:root {
+  --sw-primary: #2e3192;
+  --sw-accent:  #ed1c24;
+}
+
+/*  Page Wrapper  */
+.swasthya-page {
+  font-family: 'Noto Sans Devanagari', 'Segoe UI', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding-bottom: 60px;
+  color: #000;
+}
+
+/*  Header  */
+.swasthya-header-container {
+  background-color: #fff;
+  border-bottom: 4px solid var(--sw-primary);
+  padding: 28px 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.swasthya-title {
+  color: var(--sw-accent);
+  font-size: clamp(26px, 5vw, 48px);
+  font-weight: 900;
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
+
+.swasthya-details { color: var(--sw-primary); margin-top: 8px; }
+.swasthya-reg-text { font-size: clamp(13px, 2vw, 19px); font-weight: 700; margin-bottom: 4px; }
+.swasthya-info-text { font-size: clamp(11px, 1.6vw, 15px); font-weight: 600; opacity: 0.9; }
+
+/*  Container  */
+.swasthya-container {
+  max-width: 920px;
+  margin: 30px auto;
+  padding: 0 16px;
+}
+
+/*  Form Card  */
+.swasthya-page-card {
+  background: #fff;
+  padding: 40px 55px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  border-radius: 4px;
+}
+
+.swasthya-header-text {
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.15rem;
+  margin-top: 10px;
+  margin-bottom: 28px;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--sw-primary);
+}
+
+/*  Table — override Bootstrap resets  */
+.swasthya-page .swasthya-table {
+  width: 100%;
+  border-collapse: collapse !important;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  table-layout: auto;
+}
+
+.swasthya-page .swasthya-table th,
+.swasthya-page .swasthya-table td {
+  border: 1px solid #aaa !important;
+  padding: 10px 12px !important;
+  text-align: left !important;
+  vertical-align: middle !important;
+  font-size: 0.95rem;
+}
+
+.swasthya-page .swasthya-table th {
+  background-color: #f5f5f5 !important;
+  font-weight: 700;
+}
+
+/*  Inputs & Select — override Bootstrap form styles  */
+.swasthya-page .editable-input {
+  display: block;
+  width: 100%;
+  border: none !important;
+  border-bottom: 1.5px dotted #555 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-family: inherit;
+  font-size: 0.97rem;
+  padding: 6px 4px !important;
+  outline: none;
+  background: transparent !important;
+  color: #000;
+  transition: border-color 0.2s;
+}
+
+.swasthya-page .editable-input:focus {
+  border-bottom-color: var(--sw-primary) !important;
+  border-bottom-style: solid !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Select arrow */
+.swasthya-page select.editable-input {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns%3D'http%3A//www.w3.org/2000/svg' width%3D'12' height%3D'12'%3E%3Cpath fill%3D'%23333' d%3D'M6 8L1 3h10z'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 4px center !important;
+  background-size: 12px !important;
+  padding-right: 22px !important;
+  cursor: pointer;
+}
+
+/*  Form Row  */
+.swasthya-form-row {
+  margin-bottom: 22px;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.swasthya-label-text {
+  font-weight: 700;
+  margin-right: 10px;
+  min-width: 140px;
+  flex-shrink: 0;
+}
+
+/*  City/State/Pin row  */
+.swasthya-inline-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+
+.swasthya-inline-field {
+  flex: 1;
+  min-width: 130px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+/*  Contact row  */
+.swasthya-contact-row {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.swasthya-contact-field {
+  flex: 1;
+  min-width: 200px;
+}
+
+.swasthya-contact-field label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+/*  Section Heading  */
+.swasthya-section-heading {
+  border-bottom: 2px solid #000;
+  padding-bottom: 6px;
+  margin-bottom: 20px;
+  margin-top: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+/*  Services Grid  */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.check-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--sw-primary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/*  Submit Button — override Bootstrap  */
+.swasthya-page .swasthya-actions {
+  margin-top: 32px;
+  text-align: center;
+}
+
+.swasthya-page .swasthya-submit {
+  background-color: var(--sw-accent) !important;
+  color: #fff !important;
+  border: none !important;
+  padding: 12px 36px !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  border-radius: 6px !important;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(237,28,36,0.25);
+  transition: background 0.2s, transform 0.1s;
+  letter-spacing: 0.3px;
+}
+
+.swasthya-page .swasthya-submit:hover:not(:disabled) {
+  background-color: #c41218 !important;
+  transform: translateY(-1px);
+}
+
+.swasthya-page .swasthya-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/*  Section Divider  */
+.swasthya-section {
+  margin-bottom: 30px;
+}
+
+/*  Responsive  */
+@media (max-width: 768px) {
+  .swasthya-page-card { padding: 24px 16px; }
+  .swasthya-inline-row { flex-direction: column; gap: 10px; }
+  .swasthya-contact-row { flex-direction: column; }
+  .service-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .service-grid { grid-template-columns: 1fr; }
+  .swasthya-form-row { flex-direction: column; }
+  .swasthya-label-text { min-width: 0; }
+  .swasthya-page .swasthya-table th,
+  .swasthya-page .swasthya-table td { font-size: 0.85rem; padding: 8px !important; }
+}

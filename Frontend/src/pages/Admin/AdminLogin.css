@@ -1,0 +1,225 @@
+﻿/* =====================================================
+   AdminLogin.css — al-* prefixed, zero Bootstrap
+   ===================================================== */
+
+:root {
+  --al-red: #ED1C24;
+  --al-red-dark: #b0151b;
+  --al-yellow: #fdd831;
+  --al-text: #333;
+  --al-gray: #6c757d;
+  --al-border: #ced4da;
+  --al-bg: #fffdf5;
+  --al-white: #ffffff;
+  --al-radius: 8px;
+  --al-shadow: 0 10px 40px rgba(0,0,0,0.12);
+  --al-transition: 0.25s ease;
+}
+
+/* ---- Page wrapper ---- */
+.al-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--al-bg);
+  padding: 80px 16px 40px;
+}
+
+/* ---- Card ---- */
+.al-card {
+  width: 100%;
+  max-width: 460px;
+  background: var(--al-white);
+  border-radius: 12px;
+  box-shadow: var(--al-shadow);
+  overflow: hidden;
+}
+
+/* ---- Header ---- */
+.al-header {
+  background: linear-gradient(135deg, var(--al-red), var(--al-red-dark));
+  padding: 20px 24px;
+}
+.al-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.al-header-title {
+  color: var(--al-white);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.al-close-btn {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: var(--al-white);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  transition: background var(--al-transition);
+}
+.al-close-btn:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* ---- Body ---- */
+.al-body {
+  padding: 28px 28px 32px;
+}
+
+/* ---- Tabs ---- */
+.al-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+.al-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 4px;
+  border: 2px solid var(--al-border);
+  border-radius: 30px;
+  background: var(--al-white);
+  color: var(--al-gray);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--al-transition);
+  white-space: nowrap;
+}
+.al-tab:hover {
+  border-color: var(--al-red);
+  color: var(--al-red);
+}
+.al-tab.active {
+  background: var(--al-red);
+  border-color: var(--al-red);
+  color: var(--al-white);
+}
+
+/* ---- Form ---- */
+.al-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: alFadeIn 0.3s ease;
+}
+@keyframes alFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Form group ---- */
+.al-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.al-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--al-text);
+}
+
+/* ---- Input row ---- */
+.al-input-wrap {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--al-border);
+  border-radius: var(--al-radius);
+  overflow: hidden;
+  transition: border-color var(--al-transition);
+}
+.al-input-wrap:focus-within {
+  border-color: var(--al-red);
+  box-shadow: 0 0 0 3px rgba(237,28,36,0.1);
+}
+.al-input-icon {
+  width: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--al-gray);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.al-input {
+  flex: 1;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 10px 12px 10px 0;
+  font-size: 0.9rem;
+  color: var(--al-text);
+  background: transparent;
+}
+.al-input::placeholder {
+  color: #aaa;
+}
+
+/* ---- Buttons ---- */
+.al-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: var(--al-radius);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all var(--al-transition);
+  margin-top: 4px;
+}
+.al-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+.al-btn-red {
+  background: var(--al-red);
+  color: var(--al-white);
+}
+.al-btn-red:hover:not(:disabled) {
+  background: var(--al-red-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(237,28,36,0.3);
+}
+.al-btn-yellow {
+  background: var(--al-yellow);
+  color: var(--al-text);
+}
+.al-btn-yellow:hover:not(:disabled) {
+  background: #e7c520;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(253,216,49,0.4);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 480px) {
+  .al-body {
+    padding: 20px 16px 24px;
+  }
+  .al-tab {
+    font-size: 0.7rem;
+    gap: 4px;
+    padding: 8px 2px;
+  }
+  .al-card {
+    border-radius: 8px;
+  }
+}

@@ -1,0 +1,340 @@
+﻿/* ===== SwarojgaarRegistration.css ===== */
+/* Scoped overrides — beats Bootstrap 5 globals */
+
+* {
+  box-sizing: border-box;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.swarojgaar-container {
+  max-width: 900px;
+  margin: auto;
+  font-family: 'Arial', sans-serif;
+  color: #000;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+/* ---- Page Wrapper ---- */
+.swarojgaar-page {
+  background: #fff;
+  padding: 40px 60px;
+  margin-bottom: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  min-height: 1100px;
+}
+
+/* ---- Header ---- */
+.header-text {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+/* ---- Guidelines ---- */
+.guidelines {
+  list-style-type: disc !important;
+  padding-left: 20px !important;
+  margin: 0 !important;
+}
+
+.guidelines.swaro-guidelines-mt {
+  margin-top: 20px !important;
+}
+
+.guidelines li {
+  margin-bottom: 15px !important;
+  text-align: justify !important;
+  font-size: 1.05rem !important;
+  line-height: 1.6 !important;
+}
+
+/* ---- Form Fill Area ---- */
+.form-fill-area {
+  line-height: 2.2;
+  margin-bottom: 15px;
+}
+
+/* ---- Editable Inputs (inline in text) ---- */
+.swarojgaar-container .editable-input {
+  border: none !important;
+  border-bottom: 1px dotted #000 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  padding: 0 5px !important;
+  outline: none !important;
+}
+
+.swaro-input-sm  { width: 150px !important; }
+.swaro-input-lg  { width: 400px !important; }
+
+/* ---- Group Name ---- */
+.group-name {
+  font-weight: bold;
+  margin: 20px 0 15px 0;
+}
+
+/* ---- Members Table ---- */
+.swarojgaar-container .members-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin-top: 10px !important;
+}
+
+.swarojgaar-container .members-table th,
+.swarojgaar-container .members-table td {
+  border: 1px solid #000 !important;
+  padding: 0 !important;
+  text-align: left !important;
+  vertical-align: top !important;
+}
+
+.swarojgaar-container .members-table th {
+  background-color: #f9f9f9 !important;
+  font-size: 0.9rem !important;
+  padding: 10px !important;
+}
+
+.swarojgaar-container .members-table col.col-name,
+.swarojgaar-container .members-table thead th:nth-child(1),
+.swarojgaar-container .members-table thead th:nth-child(2) {
+  width: 40% !important;
+}
+
+.swarojgaar-container .members-table tbody tr {
+  height: 100px !important;
+}
+
+/* ---- Inner Cell (rows inside td) ---- */
+.inner-cell {
+  border-bottom: 1px solid #ccc;
+  height: 30px;
+  padding: 0;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.inner-cell:last-child {
+  border-bottom: none;
+}
+
+.swaro-cell-divider {
+  border-bottom: 1px solid #ccc;
+  height: 0;
+}
+
+/* ---- Member Text Input ---- */
+.swarojgaar-container .member-text-input {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 5px !important;
+  background: transparent !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+}
+
+.member-text-input::placeholder { color: #aaa; }
+
+/* ---- Photo Cell ---- */
+.photo-cell {
+  width: 120px !important;
+  min-width: 80px;
+  height: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  background-color: #fcfcfc;
+  text-align: center;
+  vertical-align: middle !important;
+  padding: 0 !important;
+}
+
+.photo-cell img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  display: block;
+}
+
+.photo-placeholder {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 100% !important;
+  text-align: center !important;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  color: #1a237e !important;
+}
+
+/* ---- Signature ---- */
+.signature-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  font-weight: bold;
+}
+
+.signature-section span {
+  flex: 1;
+  text-align: center;
+  border-top: 1.5px solid #000;
+  padding-top: 8px;
+}
+
+/* ---- Payment Section ---- */
+.payment-section {
+  text-align: center;
+  margin-bottom: 15px;
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.payment-label {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #1a237e;
+  white-space: nowrap;
+}
+
+/* --- Validation styles --- */
+.swaro-field-error {
+  display: block;
+  color: #d32f2f;
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 3px;
+}
+.swaro-input-err {
+  border: 1px solid #d32f2f !important;
+  background-color: #fff5f5 !important;
+}
+.editable-input.swaro-input-err {
+  border-bottom: 2px solid #d32f2f !important;
+  background-color: #fff5f5 !important;
+}
+
+.swarojgaar-container .payment-input {
+  padding: 10px 15px !important;
+  width: 200px !important;
+  font-size: 1rem !important;
+  border: 2px solid #d32f2f !important;
+  border-radius: 5px !important;
+  outline: none !important;
+  box-shadow: none !important;
+  text-align: center !important;
+  background: #fff !important;
+}
+
+.swarojgaar-container .payment-input:focus {
+  border-color: #b71c1c !important;
+  box-shadow: 0 0 5px rgba(211, 47, 47, 0.3) !important;
+}
+
+.payment-input::placeholder { color: #999; }
+
+/* ---- Submit Button ---- */
+.swarojgaar-container .submit-btn {
+  display: block !important;
+  width: 250px !important;
+  margin: 20px auto !important;
+  padding: 15px !important;
+  background: #d32f2f !important;
+  background-color: #d32f2f !important;
+  color: #fff !important;
+  text-align: center !important;
+  cursor: pointer !important;
+  border: none !important;
+  border-radius: 5px !important;
+  font-size: 16px !important;
+  font-weight: bold !important;
+  transition: all 0.3s ease !important;
+}
+
+.swarojgaar-container .submit-btn:hover {
+  background-color: #b71c1c !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 8px rgba(211, 47, 47, 0.3) !important;
+}
+
+.swarojgaar-container .submit-btn:disabled {
+  background-color: #c62828 !important;
+  cursor: not-allowed !important;
+  opacity: 0.7 !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ---- Print ---- */
+@media print {
+  @page { size: A4; margin: 0; }
+
+  .swarojgaar-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+  }
+
+  .swarojgaar-page {
+    box-shadow: none;
+    margin: 0;
+    width: 100%;
+    height: 297mm;
+    page-break-after: always;
+    padding: 40px 50px;
+    box-sizing: border-box;
+  }
+
+  .swarojgaar-page:last-of-type { page-break-after: auto; }
+
+  .submit-btn     { display: none !important; }
+  .payment-section { display: none !important; }
+
+  .editable-input { border-bottom: none !important; }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .swarojgaar-page { padding: 20px 30px; }
+  .guidelines li   { font-size: 0.95rem !important; }
+  .header-text      { margin-top: 40px; }
+
+  .members-table th { font-size: 0.85rem !important; padding: 8px 5px !important; }
+  .members-table td { padding: 5px !important; }
+
+  .swaro-input-sm { width: 100px !important; }
+  .swaro-input-lg { width: 100% !important; }
+}
+
+@media (max-width: 500px) {
+  .swarojgaar-page { padding: 15px 20px; }
+  .header-text      { font-size: 1.1rem; }
+  .guidelines li    { font-size: 0.85rem !important; }
+  .form-fill-area   { line-height: 1.8; }
+
+  .swaro-input-sm { width: 80px !important; font-size: 0.9rem !important; }
+  .members-table  { font-size: 0.85rem !important; }
+  .members-table th { font-size: 0.75rem !important; padding: 5px !important; }
+
+  .photo-cell { width: 60px !important; height: 80px !important; }
+  .signature-section { font-size: 0.85rem; }
+}

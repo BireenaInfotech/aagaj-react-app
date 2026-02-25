@@ -1,0 +1,229 @@
+/* EmployeeLogin.css - Exact styles from employee-login.html */
+
+:root {
+  --primary-red: #ED1C24;
+  --primary-yellow: #fdd831;
+  --text-dark: #333333;
+  --text-light: #666666;
+  --bg-light: #fffdf5;
+}
+
+.employee-login-page {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-dark);
+  background-color: var(--bg-light);
+}
+
+/* Login Container */
+.login-container {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+/* Login Card */
+.login-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Login Image Section */
+.login-image {
+  background-image: url('/pic3.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  min-height: 100%;
+}
+
+.login-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(237, 28, 36, 0.3), rgba(0, 0, 0, 0.6));
+}
+
+.login-image-text {
+  position: relative;
+  z-index: 2;
+  color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+}
+
+.login-image-text h2 {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.login-image-text p {
+  line-height: 1.6;
+}
+
+/* Form Section */
+.login-form-section {
+  padding: 50px;
+}
+
+.login-form-section .text-center h3 {
+  color: var(--text-dark);
+  font-weight: bold;
+}
+
+.login-form-section .text-center p {
+  font-size: 0.9rem;
+}
+
+/* Form Styling */
+.form-label {
+  color: #999;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.input-group-text {
+  background-color: #f8f9fa !important;
+  border: none !important;
+  padding: 12px;
+  font-size: 0.9rem;
+}
+
+.form-control {
+  border: none !important;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  outline: none;
+  background: transparent !important;
+}
+
+.form-control::placeholder {
+  color: #ccc;
+}
+
+.form-control:focus {
+  box-shadow: none !important;
+}
+
+/* Remember Me */
+.form-check-input {
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.form-check-input:checked {
+  background-color: var(--primary-red);
+  border-color: var(--primary-red);
+}
+
+.form-check-label {
+  cursor: pointer;
+  color: var(--text-light);
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-left: 6px;
+}
+
+/* Forgot Password Link */
+a.small.text-danger {
+  color: var(--primary-red) !important;
+  font-weight: bold !important;
+  text-decoration: none !important;
+}
+
+a.small.text-danger:hover {
+  opacity: 0.8;
+}
+
+/* Login Button */
+.btn-login {
+  background-color: var(--primary-red);
+  color: white;
+  font-weight: 700;
+  border-radius: 30px;
+  padding: 12px;
+  border: none;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-login:hover:not(:disabled) {
+  background-color: #b0151b;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(237, 28, 36, 0.3);
+}
+
+.btn-login:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Support Link */
+.text-center a.text-dark {
+  color: var(--text-dark) !important;
+  font-weight: bold !important;
+  text-decoration: none !important;
+}
+
+.text-center a.text-dark:hover {
+  color: var(--primary-red) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .login-image {
+    display: none;
+  }
+
+  .login-form-section {
+    padding: 30px;
+  }
+
+  .login-container {
+    min-height: auto;
+    padding: 20px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-form-section {
+    padding: 20px;
+  }
+
+  .login-card {
+    border-radius: 10px;
+  }
+
+  .form-label {
+    font-size: 0.75rem;
+  }
+
+  .form-control {
+    font-size: 0.9rem;
+  }
+}
