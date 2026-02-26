@@ -9,24 +9,39 @@ const PaymentResponse = () => {
   const [responseData, setResponseData] = useState(null);
   const [paymentStatus, setPaymentStatus] = useState(null);
 
+  // Helper function to read cookies
+  const getCookie = (name) => {
+    const nameEQ = name + "=";
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+      cookie = cookie.trim();
+      if (cookie.indexOf(nameEQ) === 0) {
+        return decodeURIComponent(cookie.substring(nameEQ.length));
+      }
+    }
+    return null;
+  };
+
   useEffect(() => {
-    // Get response from query params
+    // Get status from query param
     const params = new URLSearchParams(window.location.search);
-    const response = params.get('response');
     const status = params.get('payment');
 
-    if (response) {
+    // Try to get response from cookie first
+    const cookieResponse = getCookie('paymentResponse');
+    
+    if (cookieResponse) {
       try {
-        const decoded = decodeURIComponent(response);
-        const parsed = JSON.parse(decoded);
+        const parsed = JSON.parse(cookieResponse);
         console.log('📊 Payment Response Data:', parsed);
         setResponseData(parsed);
         setPaymentStatus(parsed.paymentStatus || parsed.txnStatus || status);
       } catch (err) {
-        console.error('Error parsing response:', err);
-        setPaymentStatus('error');
+        console.error('Error parsing response from cookie:', err);
+        setPaymentStatus(status || 'error');
       }
     } else if (status) {
+      // Fallback to status from URL parameter (for backward compatibility with old URLs)
       setPaymentStatus(status);
     }
   }, []);

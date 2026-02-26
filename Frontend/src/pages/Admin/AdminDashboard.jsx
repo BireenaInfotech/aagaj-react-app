@@ -20,6 +20,7 @@ export default function AdminDashboard() {
     silaiCount: 0, swarojgaarCount: 0, swasthyaCount: 0,
     healthCardCount: 0, appointmentCount: 0
   });
+  const [error, setError] = useState(null);
 
   const [showAddEmployeeModal, setShowAddEmployeeModal] = useState(false);
   const [showCardModal, setShowCardModal] = useState(false);
@@ -37,7 +38,11 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     const loggedInUser = sessionStorage.getItem('loggedInUser');
-    if (loggedInUser !== 'Admin') navigate('/admin-login');
+    console.log('🔍 AdminDashboard Check - loggedInUser:', loggedInUser);
+    if (loggedInUser !== 'Admin') {
+      console.warn('⚠️ Not logged in as Admin, redirecting to login');
+      navigate('/admin-login');
+    }
   }, [navigate]);
 
   useEffect(() => {
@@ -62,21 +67,47 @@ export default function AdminDashboard() {
 
   const apiUrl = import.meta.env.VITE_API_URL;
 
+  console.log('📡 API URL:', apiUrl);
+
   const fetchData = async () => {
     try {
+      console.log('📡 Fetching applicants from:', `${apiUrl}/admin/get-all-applicants`);
       const res = await fetch(`${apiUrl}/admin/get-all-applicants`);
+      console.log('📊 Response status:', res.status);
+      
+      if (!res.ok) {
+        console.error('❌ API Error - Status:', res.status, res.statusText);
+        const errorText = await res.text();
+        console.error('Error details:', errorText);
+        setLoading(false);
+        return;
+      }
+      
       const json = await res.json();
+      console.log('✅ Data received:', json);
       const list = Array.isArray(json) ? json : (Array.isArray(json?.data) ? json.data : []);
       setAllData(list);
       updateStats(list);
       setLoading(false);
-    } catch (err) { console.error('Fetch Error:', err); setLoading(false); }
+    } catch (err) { 
+      console.error('❌ Fetch Error:', err);
+      setLoading(false); 
+    }
   };
 
   const fetchSchemeData = async () => {
     try {
+      console.log('📡 Fetching beneficiaries from:', `${apiUrl}/admin/get-all-beneficiaries`);
       const res = await fetch(`${apiUrl}/admin/get-all-beneficiaries`);
+      console.log('📊 Beneficiaries response status:', res.status);
+      
+      if (!res.ok) {
+        console.error('❌ Beneficiaries API Error - Status:', res.status);
+        return;
+      }
+      
       const json = await res.json();
+      console.log('✅ Beneficiaries data received:', json.length || 0, 'records');
       const list = Array.isArray(json) ? json : (Array.isArray(json?.data) ? json.data : []);
       if (list.length >= 0) {
         setSchemeBeneficiaries(list);
@@ -87,7 +118,7 @@ export default function AdminDashboard() {
           swasthyaCount: list.filter(d => d.yojanaName === 'Swasthya Suraksha Yojana').length
         }));
       }
-    } catch (err) { console.error('Scheme Fetch Error:', err); }
+    } catch (err) { console.error('❌ Scheme Fetch Error:', err); }
   };
 
   const fetchHealthCardData = async () => {
@@ -186,6 +217,33 @@ export default function AdminDashboard() {
 
   return (
     <>
+      {/* Error Alert */}
+      {!apiUrl && (
+        <div style={{
+          padding: '20px',
+          margin: '20px',
+          backgroundColor: '#f8d7da',
+          border: '1px solid #f5c6cb',
+          color: '#721c24',
+          borderRadius: '4px',
+          fontSize: '16px'
+        }}>
+          ⚠️ <strong>Configuration Error:</strong> API URL is not set. Please check your .env file and ensure VITE_API_URL is defined.
+        </div>
+      )}
+      {error && (
+        <div style={{
+          padding: '20px',
+          margin: '20px',
+          backgroundColor: '#f8d7da',
+          border: '1px solid #f5c6cb',
+          color: '#721c24',
+          borderRadius: '4px'
+        }}>
+          ⚠️ <strong>Error:</strong> {error}
+        </div>
+      )}
+      
       <div className="ad-wrapper">
 
         {/* Sidebar overlay */}
