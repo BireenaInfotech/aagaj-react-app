@@ -119,9 +119,15 @@ export default function AdminDashboard() {
     setShowPerformance(true);
     try {
       const res = await fetch(`${apiUrl}/admin/employee-stats`);
+      if (!res.ok) {
+        console.error('Stat fetch failed', res.status, res.statusText);
+        setPerformanceData([]);
+        return;
+      }
       const data = await res.json();
-      setPerformanceData(data || []);
-    } catch (e) { console.error('Performance Fetch Error:', e); }
+      // guard against server returning an object
+      setPerformanceData(Array.isArray(data) ? data : []);
+    } catch (e) { console.error('Performance Fetch Error:', e); setPerformanceData([]); }
   };
 
   const handleAddEmployee = async (e) => {
